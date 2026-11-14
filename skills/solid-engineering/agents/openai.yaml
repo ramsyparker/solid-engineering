@@ -1,0 +1,4 @@
+interface:
+  display_name: "SOLID Engineering"
+  short_description: "Audit, build, and verify dependable software"
+  default_prompt: "Use $solid-engineering to inspect this project and complete the requested engineering work with verified results."

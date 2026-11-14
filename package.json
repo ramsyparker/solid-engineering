@@ -1,0 +1,21 @@
+{
+  "name": "@aaramsyy/solidengineering",
+  "version": "0.1.0",
+  "description": "Install the SOLID Engineering Standard agent skill",
+  "type": "module",
+  "author": "aaramsyy",
+  "repository": { "type": "git", "url": "git+https://github.com/ramsyparker/solid-engineering.git" },
+  "homepage": "https://github.com/ramsyparker/solid-engineering#readme",
+  "bugs": { "url": "https://github.com/ramsyparker/solid-engineering/issues" },
+  "bin": { "solidengineering": "bin/cli.mjs" },
+  "publishConfig": { "access": "public" },
+  "files": ["bin/", "skills/"],
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check bin/cli.mjs",
+    "prepack": "npm run check && npm test"
+  },
+  "license": "UNLICENSED",
+  "keywords": ["agent-skills", "codex", "solid", "engineering", "claude", "cursor"]
+}
