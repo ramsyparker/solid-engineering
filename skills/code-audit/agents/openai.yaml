@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Audit"
+  short_description: "Review code with evidence and prioritized findings"
+  default_prompt: "Use $code-audit to review the requested code without editing it, reporting actionable findings with evidence and severity."

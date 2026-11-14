@@ -1,7 +1,7 @@
 {
   "name": "@aaramsyy/solidengineering",
-  "version": "0.1.1",
-  "description": "Install the SOLID Engineering Standard agent skill",
+  "version": "0.2.0",
+  "description": "Engineering, refactoring, and code audit skills for AI coding agents",
   "type": "module",
   "author": "aaramsyy",
   "repository": { "type": "git", "url": "git+https://github.com/ramsyparker/solid-engineering.git" },

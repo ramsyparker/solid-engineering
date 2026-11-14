@@ -1,0 +1,4 @@
+interface:
+  display_name: "Refactoring"
+  short_description: "Improve code structure while preserving behavior"
+  default_prompt: "Use $refactoring to improve the requested module's structure while preserving its observable behavior and verifying the changes."
