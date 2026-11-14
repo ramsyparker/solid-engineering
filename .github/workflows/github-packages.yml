@@ -1,0 +1,42 @@
+name: Publish to GitHub Packages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: github-packages-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.repository == 'ramsyparker/solid-engineering' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Set up Node.js and GitHub registry
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          registry-url: https://npm.pkg.github.com
+          scope: '@ramsyparker'
+      - name: Prepare GitHub package metadata
+        run: npm pkg set 'name=@ramsyparker/solidengineering' 'publishConfig.registry=https://npm.pkg.github.com'
+      - name: Publish verified package
+        # prepack runs the syntax check and complete test suite.
+        run: npm publish --registry=https://npm.pkg.github.com
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Verify registry version
+        run: |
+          version=$(node -p 'JSON.parse(require("fs").readFileSync("package.json", "utf8")).version')
+          npm view "@ramsyparker/solidengineering@$version" version license --json --registry=https://npm.pkg.github.com
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -48,6 +48,19 @@ npx @aaramsyy/solidengineering@0.1.0 install
 
 `npm install @aaramsyy/solidengineering` downloads the package but does not copy the agent skill. Run the explicit CLI `install` command to perform that step.
 
+### GitHub Packages
+
+The GitHub Packages distribution uses **`@ramsyparker/solidengineering`**, matching the repository owner's namespace. The npm distribution remains **`@aaramsyy/solidengineering`**. Both provide the same skill and installer.
+
+GitHub's npm registry requires authentication to download packages, including public packages. Use a GitHub personal access token (classic) with `read:packages` when prompted for the password:
+
+```sh
+npm login --scope=@ramsyparker --auth-type=legacy --registry=https://npm.pkg.github.com
+npx --registry=https://npm.pkg.github.com @ramsyparker/solidengineering install
+```
+
+Add `--agent claude` or `--agent cursor` to select another agent. For installation without GitHub registry authentication, use the npm quick start or the GitHub Release archive below. See [GitHub's package authentication documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages).
+
 ## What the skill does
 
 | Stage | Expected behavior |
