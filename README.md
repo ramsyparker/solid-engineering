@@ -178,6 +178,12 @@ npx --yes https://github.com/ramsyparker/solid-engineering/releases/download/v0.
 
 Add `--agent claude` or `--agent cursor` to select another agent. Back up and move any existing installation before reinstalling.
 
+With npm 12+, direct URL installs require an explicit per-command opt-in. If you see `EALLOWREMOTE`, use the downloaded archive as shown above, or run:
+
+```sh
+npx --yes --allow-remote=root https://github.com/ramsyparker/solid-engineering/releases/download/v0.1.1/aaramsyy-solidengineering-0.1.1.tgz install
+```
+
 GitHub Release **v0.1.1** includes the MIT license and updated documentation. The npm commands above use the version available on npm; publishing a GitHub Release does not update that registry.
 
 ## License
