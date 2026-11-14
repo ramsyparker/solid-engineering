@@ -1,6 +1,6 @@
 {
   "name": "@aaramsyy/solidengineering",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Install the SOLID Engineering Standard agent skill",
   "type": "module",
   "author": "aaramsyy",
@@ -16,6 +16,6 @@
     "check": "node --check bin/cli.mjs",
     "prepack": "npm run check && npm test"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "keywords": ["agent-skills", "codex", "solid", "engineering", "claude", "cursor"]
 }

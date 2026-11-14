@@ -2,7 +2,7 @@
 
 **A practical engineering standard for AI coding agents.**
 
-Created by **aaramsyy** | [GitHub](https://github.com/ramsyparker/solid-engineering) | [npm](https://www.npmjs.com/package/@aaramsyy/solidengineering) | [Issues](https://github.com/ramsyparker/solid-engineering/issues)
+Created by **aaramsyy** | [GitHub](https://github.com/ramsyparker/solid-engineering) | [npm](https://www.npmjs.com/package/@aaramsyy/solidengineering) | [Releases](https://github.com/ramsyparker/solid-engineering/releases) | [Issues](https://github.com/ramsyparker/solid-engineering/issues)
 
 Install a reusable skill that guides your agent through repository reconnaissance, evidence-based auditing, focused implementation, and verification. Apply SOLID, separation of concerns, and pragmatic engineering judgment without demanding unnecessary classes, layers, or rewrites.
 
@@ -154,57 +154,32 @@ To remove, delete only the installed `solid-engineering` directory and reload yo
 
 Report reproducible problems through [GitHub Issues](https://github.com/ramsyparker/solid-engineering/issues). Include OS, Node.js version, package version, command, and sanitized error output. Do not include credentials, tokens, or private project data.
 
-## Development
+## Install from a GitHub Release
+
+Download `aaramsyy-solidengineering-0.1.1.tgz` from [GitHub Releases](https://github.com/ramsyparker/solid-engineering/releases/tag/v0.1.1). This archive includes the installer, skill, README, and MIT license.
+
+From your project directory, substitute the path to your downloaded archive:
 
 ```sh
-git clone https://github.com/ramsyparker/solid-engineering.git
-cd solid-engineering
-npm test
-npm run check
-npm pack --dry-run
+npm exec --yes --package="/path/to/aaramsyy-solidengineering-0.1.1.tgz" -- solidengineering install
 ```
 
-No dependency installation or build step is required. Tests use Node's built-in runner and isolated temporary directories. They cover all agent targets, complete payload copying, overwrite protection, invalid arguments, dry runs, and paths containing spaces. `prepack` runs syntax checks and tests before packaging.
+For example, in Windows PowerShell:
 
-```text
-bin/cli.mjs                          Installer executable
-skills/solid-engineering/
-  SKILL.md                           Skill entrypoint
-  agents/openai.yaml                 Codex display metadata
-  references/engineering-standard.md Detailed checklist
-test/cli.test.mjs                     Installer tests
+```powershell
+npm exec --yes --package="C:/Users/YourName/Downloads/aaramsyy-solidengineering-0.1.1.tgz" -- solidengineering install --agent codex
 ```
 
-The npm payload includes the CLI, skill files, package metadata, and README. Tests and local `.tgz` archives are excluded.
-
-### Test a local archive
-
-Run `npm pack`, then use the generated archive from a separate test project. Substitute the actual path and version:
+You can also install directly from the release asset:
 
 ```sh
-npm exec --yes --package=/absolute/path/aaramsyy-solidengineering-0.1.0.tgz -- solidengineering install --dry-run
+npx --yes https://github.com/ramsyparker/solid-engineering/releases/download/v0.1.1/aaramsyy-solidengineering-0.1.1.tgz install
 ```
 
-Remove `--dry-run` to test installation in a disposable project or dedicated custom directory.
+Add `--agent claude` or `--agent cursor` to select another agent. Back up and move any existing installation before reinstalling.
 
-## Maintainer release workflow
-
-Publishing requires an account authorized for the `@aaramsyy` scope:
-
-```sh
-npm login --registry=https://registry.npmjs.org/
-npm whoami --registry=https://registry.npmjs.org/
-```
-
-Choose an unused version in `package.json`, review the complete diff, run the checks above, and inspect the package contents. Published name/version pairs cannot be overwritten. Then publish explicitly:
-
-```sh
-npm publish --access public --registry=https://registry.npmjs.org/
-npm view @aaramsyy/solidengineering version --registry=https://registry.npmjs.org/
-```
-
-Complete browser or two-factor authentication when prompted. Verify installation from the published version before announcing the release. Pushing to GitHub does not publish to npm; this repository has no automatic release workflow.
+GitHub Release **v0.1.1** includes the MIT license and updated documentation. The npm commands above use the version available on npm; publishing a GitHub Release does not update that registry.
 
 ## License
 
-Currently **UNLICENSED**. No open-source license is granted. Public source availability and npm distribution do not change that designation. Contact [aaramsyy / ramsyparker](https://github.com/ramsyparker) regarding licensing.
+[MIT](LICENSE). Copyright (c) 2026 **aaramsyy**.
